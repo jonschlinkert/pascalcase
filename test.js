@@ -14,6 +14,13 @@ describe('pascalcase', function () {
     pascalcase('foo bar baz').should.equal('FooBarBaz');
   });
 
+  it('should not lowercase existing camelcasing:', function () {
+    pascalcase('fooBarBaz').should.equal('FooBarBaz');
+    pascalcase('FooBarBaz').should.equal('FooBarBaz');
+    pascalcase(' FooBarBaz').should.equal('FooBarBaz');
+    pascalcase(' fooBarBaz').should.equal('FooBarBaz');
+  });
+
   it('should work with other non-word-characters:', function () {
     pascalcase('foo_bar-baz').should.equal('FooBarBaz');
     pascalcase('foo.bar.baz').should.equal('FooBarBaz');
