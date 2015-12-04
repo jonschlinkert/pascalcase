@@ -1,7 +1,7 @@
 {
   "name": "pascalcase",
   "description": "Convert a string to pascal-case.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/jonschlinkert/pascalcase",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "jonschlinkert/pascalcase",
@@ -19,13 +19,14 @@
   "scripts": {
     "test": "mocha"
   },
-  "dependencies": {},
   "devDependencies": {
     "mocha": "*",
     "should": "*"
   },
   "keywords": [
+    "camelcase",
     "case",
+    "casing",
     "pascal",
     "pascal-case",
     "pascalcase",
