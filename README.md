@@ -6,7 +6,7 @@ Please consider following this project's author, [Jon Schlinkert](https://github
 
 ## Install
 
-Install with [npm](https://www.npmjs.com/) (requires [Node.js](https://nodejs.org/en/) >=6):
+Install with [npm](https://www.npmjs.com/) (requires [Node.js](https://nodejs.org/en/) >=8):
 
 ```sh
 $ npm install --save pascalcase
