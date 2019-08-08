@@ -1,21 +1,24 @@
 /*!
  * pascalcase <https://github.com/jonschlinkert/pascalcase>
  *
- * Copyright (c) 2015, Jon Schlinkert.
+ * Copyright (c) 2015-present, Jon ("Schlink") Schlinkert.
  * Licensed under the MIT License.
  */
 
-function pascalcase(str) {
-  if (typeof str !== 'string') {
-    throw new TypeError('expected a string.');
-  }
-  str = str.replace(/([A-Z])/g, ' $1');
-  if (str.length === 1) { return str.toUpperCase(); }
-  str = str.replace(/^[\W_]+|[\W_]+$/g, '').toLowerCase();
-  str = str.charAt(0).toUpperCase() + str.slice(1);
-  return str.replace(/[\W_]+(\w|$)/g, function (_, ch) {
-    return ch.toUpperCase();
-  });
-}
+const titlecase = input => input[0].toLocaleUpperCase() + input.slice(1);
 
-module.exports = pascalcase;
+module.exports = value => {
+  if (value === null || value === void 0) return '';
+  if (typeof value.toString !== 'function') return '';
+
+  let input = value.toString().trim();
+  if (input === '') return '';
+  if (input.length === 1) return input.toLocaleUpperCase();
+
+  let match = input.match(/[a-zA-Z0-9]+/g);
+  if (match) {
+    return match.map(m => titlecase(m)).join('');
+  }
+
+  return input;
+};

@@ -14,14 +14,14 @@
   ],
   "main": "index.js",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=6"
   },
   "scripts": {
     "test": "mocha"
   },
   "devDependencies": {
-    "mocha": "*",
-    "should": "*"
+    "gulp-format-md": "^2.0.0",
+    "mocha": "^6.2.0"
   },
   "keywords": [
     "camelcase",
@@ -29,18 +29,30 @@
     "casing",
     "pascal",
     "pascal-case",
+    "pascal case",
     "pascalcase",
-    "string"
+    "string",
+    "UpperCamelCase"
   ],
   "verb": {
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
     "related": {
       "list": [
-        "pad-left",
-        "pad-right",
+        "ansi-colors",
         "word-wrap",
-        "repeat-string",
+        "randomatic",
         "justified"
       ]
+    },
+    "lint": {
+      "reflinks": true
     }
   }
 }
