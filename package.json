@@ -1,6 +1,6 @@
 {
   "name": "pascalcase",
-  "description": "Convert a string to pascal-case.",
+  "description": "Convert a string to pascal case (upper camelcase).",
   "version": "1.0.0",
   "homepage": "https://github.com/jonschlinkert/pascalcase",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
@@ -9,21 +9,23 @@
     "url": "https://github.com/jonschlinkert/pascalcase/issues"
   },
   "license": "MIT",
+  "main": "index.js",
   "files": [
     "index.js"
   ],
-  "main": "index.js",
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "scripts": {
     "test": "mocha"
   },
   "devDependencies": {
     "gulp-format-md": "^2.0.0",
-    "mocha": "^6.2.0"
+    "mocha": "^9.1.3"
   },
   "keywords": [
+    "change case",
+    "camel",
     "camelcase",
     "case",
     "casing",
@@ -32,6 +34,7 @@
     "pascal case",
     "pascalcase",
     "string",
+    "upper camel case",
     "UpperCamelCase"
   ],
   "verb": {
@@ -54,5 +57,8 @@
     "lint": {
       "reflinks": true
     }
+  },
+  "dependencies": {
+    "camelcase": "^6.2.1"
   }
 }

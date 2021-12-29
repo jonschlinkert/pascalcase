@@ -1,24 +1,32 @@
-/*!
- * pascalcase <https://github.com/jonschlinkert/pascalcase>
- *
- * Copyright (c) 2015-present, Jon ("Schlink") Schlinkert.
- * Licensed under the MIT License.
- */
+'use strict';
 
-const titlecase = input => input[0].toLocaleUpperCase() + input.slice(1);
+const camelcase = require('camelcase');
 
-module.exports = value => {
-  if (value === null || value === void 0) return '';
-  if (typeof value.toString !== 'function') return '';
+const PUNCTUATION = /[^\p{L}\p{N}]+/ug;
 
-  let input = value.toString().trim();
-  if (input === '') return '';
-  if (input.length === 1) return input.toLocaleUpperCase();
+const toString = input => {
+  if (input == null) return '';
 
-  let match = input.match(/[a-zA-Z0-9]+/g);
-  if (match) {
-    return match.map(m => titlecase(m)).join('');
+  if (Array.isArray(input)) {
+    return input.map(s => s.toString().trim()).filter(s => s.length > 0).join(' ');
   }
 
-  return input;
+  if (typeof input === 'function') {
+    return input.name ? input.name : '';
+  }
+
+  if (typeof input.toString !== 'function') {
+    return '';
+  }
+
+  return input.toString().trim();
 };
+
+const pascalcase = (value, options = {}) => {
+  const input = toString(value);
+  const regex = options.punctuationRegex ?? PUNCTUATION;
+  const output = input ? camelcase(regex ? input.replace(regex, ' ') : input, options) : '';
+  return output ? output[0].toLocaleUpperCase(options.locale) + output.slice(1) : '';
+};
+
+module.exports = pascalcase;
