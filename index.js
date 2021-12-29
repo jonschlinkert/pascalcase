@@ -1,6 +1,4 @@
-'use strict';
-
-const camelcase = require('camelcase');
+import camelcase from 'camelcase';
 
 const PUNCTUATION = /[^\p{L}\p{N}]+/ug;
 
@@ -22,11 +20,11 @@ const toString = input => {
   return input.toString().trim();
 };
 
-const pascalcase = (value, options = {}) => {
+export const pascalcase = (value, options = {}) => {
   const input = toString(value);
   const regex = options.punctuationRegex ?? PUNCTUATION;
   const output = input ? camelcase(regex ? input.replace(regex, ' ') : input, options) : '';
   return output ? output[0].toLocaleUpperCase(options.locale) + output.slice(1) : '';
 };
 
-module.exports = pascalcase;
+export default pascalcase;

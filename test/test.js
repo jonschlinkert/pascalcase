@@ -1,7 +1,5 @@
-'use strict';
-
-const assert = require('assert').strict;
-const pascalcase = require('..');
+import { strict as assert } from 'assert';
+import pascalcase from '../index.js';
 
 describe('pascalcase', () => {
   it('should uppercase a single character string', () => {

@@ -1,7 +1,5 @@
-'use strict';
-
-const assert = require('assert').strict;
-const pascal = require('..');
+import { strict as assert } from 'assert';
+import pascal from '../index.js';
 
 /**
  * These tests were ported from sindresorhus/camelcase, since pascalcase
